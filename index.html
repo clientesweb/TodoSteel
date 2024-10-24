@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Steel Construcciones en Seco - Construcción con Steel Framing</title>
+    <meta name="description" content="Todo Steel Construcciones en Seco ofrece servicios de construcción con steel framing. Durabilidad, aislación y sostenibilidad garantizadas.">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#1F1F1F">
+    <meta property="og:title" content="Todo Steel Construcciones en Seco">
+    <meta property="og:description" content="Construcción con Steel Framing - Durabilidad, aislación y sostenibilidad garantizadas.">
+    <meta property="og:image" content="https://todosteel.com/og-image.jpg">
+    <meta property="og:url" content="https://todosteel.com">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF0000',
+                        secondary: '#1F1F1F',
+                        accent: '#FFFFFF',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1F1F1F;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .pulse {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+            }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .rotate-on-scroll {
+            transition: transform 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-secondary text-accent">
+    <div class="preloader" id="preloader">
+        <img src="/logo.png" alt="Todo Steel Logo" class="w-24 h-24 pulse">
+    </div>
+
+    <div id="top-banner" class="bg-primary text-white py-2 text-center">
+        <p class="text-sm">¡Oferta especial! 10% de descuento en proyectos nuevos. <a href="#contacto" class="underline">Contáctanos ahora</a></p>
+    </div>
+
+    <header class="fixed w-full bg-secondary shadow-md z-50 transition-all duration-300" id="main-header">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <img src="/logo.png" alt="Todo Steel Logo" class="h-10 w-auto">
+            </a>
+            <div class="hidden md:flex space-x-4">
+                <a href="#inicio" class="text-accent hover:text-primary transition">Inicio</a>
+                <a href="#sobre-nosotros" class="text-accent hover:text-primary transition">Sobre Nosotros</a>
+                <a href="#servicios" class="text-accent hover:text-primary transition">Servicios</a>
+                <a href="#proyectos" class="text-accent hover:text-primary transition">Proyectos</a>
+                <a href="#contacto" class="text-accent hover:text-primary transition">Contacto</a>
+            </div>
+            <div class="hidden md:flex space-x-4">
+                <a href="#" class="text-accent hover:text-primary transition">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                    </svg>
+                </a>
+                <a href="#" class="text-accent hover:text-primary transition">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+            </div>
+            <button class="md:hidden" id="menu-toggle">
+                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </nav>
+        <div class="hidden md:hidden bg-secondary p-4" id="mobile-menu">
+            <a href="#inicio" class="block text-accent hover:text-primary py-2">Inicio</a>
+            <a href="#sobre-nosotros" class="block text-accent hover:text-primary py-2">Sobre Nosotros</a>
+            <a href="#servicios" class="block text-accent hover:text-primary py-2">Servicios</a>
+            <a href="#proyectos" class="block text-accent hover:text-primary py-2">Proyectos</a>
+            <a href="#contacto" class="block text-accent hover:text-primary py-2">Contacto</a>
+            <div class="flex space-x-4 mt-4">
+                <a href="#" class="text-accent hover:text-primary transition">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                    </svg>
+                </a>
+                <a href="#" class="text-accent hover:text-primary transition">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <section id="inicio" class="h-screen bg-cover bg-center flex items-center" style="background-image: url('https://images.unsplash.com/photo-1541123437800-1bb1317badc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 opacity-0 transform translate-y-12 transition duration-1000 ease-out"   id="hero-title">Construimos tu sueño con durabilidad y sostenibilidad</h1>
+                <div class="space-x-4 opacity-0 transform translate-y-12 transition duration-1000 ease-out delay-300" id="hero-buttons">
+                    <a href="#contacto" class="bg-primary text-white px-6 py-3 rounded-full hover:bg-red-600 transition">Contáctanos</a>
+                    <a href="#proyectos" class="bg-white text-secondary px-6 py-3 rounded-full hover:bg-gray-200 transition">Ver Proyectos</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre-nosotros" class="py-20 bg-secondary">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-primary mb-8">Sobre Nosotros</h2>
+                <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-12">
+                    <div class="md:w-1/2 fade-in">
+                        <p class="text-lg text-accent">
+                            En Todo Steel, nos especializamos en construcciones en seco utilizando materiales de la más alta calidad. Con años de experiencia en el mercado, hemos perfeccionado nuestras técnicas de steel framing para ofrecer soluciones duraderas y sostenibles a nuestros clientes.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 fade-in">
+                        <img src="/about-image.jpg" alt="Equipo de Todo Steel" class="rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios" class="py-20 bg-accent">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-primary mb-12">Nuestros Servicios</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-secondary p-6 rounded-lg shadow-md text-center fade-in">
+                        <svg class="w-12 h-12 text-primary mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                        <h3 class="text-xl font-semibold mb-2 text-primary">Steel Framing</h3>
+                        <p class="text-accent">Construcción rápida y duradera utilizando las últimas tecnologías en steel framing.</p>
+                    </div>
+                    <div class="bg-secondary p-6 rounded-lg shadow-md text-center fade-in">
+                        <svg class="w-12 h-12 text-primary mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        <h3 class="text-xl font-semibold mb-2 text-primary">Aislación y Sostenibilidad</h3>
+                        <p class="text-accent">Implementamos soluciones de aislación térmica y acústica para maximizar la eficiencia energética de tu hogar.</p>
+                    </div>
+                    <div class="bg-secondary p-6 rounded-lg shadow-md text-center fade-in">
+                        <svg  class="w-12 h-12 text-primary mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <h3 class="text-xl font-semibold mb-2 text-primary">Diseño Personalizado</h3>
+                        <p class="text-accent">Creamos diseños únicos adaptados a tus necesidades y preferencias específicas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="video-explicativo" class="py-20 bg-secondary">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-primary mb-12">Descubre Todo Steel</h2>
+                <div class="aspect-w-16 aspect-h-9 fade-in">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyectos" class="py-20 bg-secondary">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-primary mb-12">Nuestros Proyectos</h2>
+                <div class="flex justify-center mb-8">
+                    <button class="bg-primary text-white px-4 py-2 rounded-l-full" data-filter="all">Todos</button>
+                    <button class="bg-accent text-secondary px-4 py-2" data-filter="residencial">Residencial</button>
+                    <button class="bg-accent text-secondary px-4 py-2 rounded-r-full" data-filter="comercial">Comercial</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="proyectos-grid">
+                    <!-- Las imágenes de los proyectos se cargarán dinámicamente con JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section id="banner-promocional" class="bg-primary text-white py-12">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-4">¡Oferta Especial de Verano!</h2>
+                <p class="text-xl mb-6">Obtén un 15% de descuento en tu proyecto de construcción si lo inicias antes del 31 de diciembre.</p>
+                <a href="#contacto" class="bg-white text-primary px-6 py-3 rounded-full hover:bg-gray-200 transition">¡Aprovecha Ahora!</a>
+            </div>
+        </section>
+
+        <section id="faq" class="py-20 bg-accent">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-primary mb-12">Preguntas Frecuentes</h2>
+                <div class="space-y-4" id="faq-container">
+                    <!-- Las preguntas y respuestas se cargarán dinámicamente con JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="py-20 bg-secondary">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-primary mb-12">Contáctanos</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <form class="bg-accent p-6 rounded-lg shadow-md fade-in">
+                        <div class="mb-4">
+                            <label for="nombre" class="block text-sm font-medium text-secondary mb-2">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-primary focus:border-primary" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-sm font-medium text-secondary mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-primary focus:border-primary" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="mensaje" class="block text-sm font-medium text-secondary mb-2">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-primary focus:border-primary" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white px-4 py-2 rounded-md hover:bg-red-600 transition">Enviar Mensaje</button>
+                    </form>
+                    <div class="fade-in">
+                        <div class="mb-8">
+                            <h3 class="text-xl font-semibold mb-2 text-primary">Información de Contacto</h3>
+                            <p class="text-accent">Email: info@todosteel.com</p>
+                            <p class="text-accent">Teléfono: +54 3446 431765</p>
+                            <p class="text-accent">Dirección: Av. Principal 123, Valle de Calamuchita, Córdoba, Argentina</p>
+                        </div>
+                        <div class="h-64 rounded-lg shadow-md overflow-hidden">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108971.02549760912!2d-64.6333!3d-32.1833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95d2c7f00b0d1c3d%3A0x8a4b0e9b0e5c8c0a!2sValle%20de%20Calamuchita%2C%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1625000000000!5m2!1ses!2sar" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-secondary text-accent py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="fade-in">
+                    <img src="/logo.png" alt="Todo Steel Logo" class="h-12 w-auto mb-4">
+                    <p class="text-sm">Construyendo sueños con durabilidad y sostenibilidad desde 2010.</p>
+                </div>
+                <div class="fade-in">
+                    <h3 class="text-lg font-semibold mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="hover:text-primary transition">Inicio</a></li>
+                        <li><a href="#sobre-nosotros" class="hover:text-primary transition">Sobre Nosotros</a></li>
+                        <li><a href="#servicios" class="hover:text-primary transition">Servicios</a></li>
+                        <li><a href="#proyectos" class="hover:text-primary transition">Proyectos</a></li>
+                        <li><a href="#contacto" class="hover:text-primary transition">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="fade-in">
+                    <h3 class="text-lg font-semibold mb-4">Servicios</h3>
+                    <ul class="space-y-2">
+                        <li>Steel Framing</li>
+                        <li>Aislación y Sostenibilidad</li>
+                        <li>Diseño Personalizado</li>
+                        <li>Construcción Residencial</li>
+                        <li>Construcción Comercial</li>
+                    </ul>
+                </div>
+                <div class="fade-in">
+                    <h3 class="text-lg font-semibold mb-4">Síguenos</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-accent hover:text-primary transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-accent hover:text-primary transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-accent hover:text-primary transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p>&copy; 2023 Todo Steel Construcciones en Seco. Todos los derechos reservados.</p>
+                <p class="mt-2 text-sm">
+                    Powered by <a href="https://dualitydomain.com" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Duality Domain</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/543446431765" class="fixed bottom-4 right-4 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition" target="_blank" rel="noopener noreferrer">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+    </a>
+
+    <script>
+        // JavaScript para la interactividad
+        document.addEventListener('DOMContentLoaded', function() {
+            // Preloader
+            setTimeout(() => {
+                document.getElementById('preloader').style.display = 'none';
+            }, 2000);
+
+            // Animación de aparición al hacer scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Animación del hero
+            setTimeout(() => {
+                document.getElementById('hero-title').classList.add('opacity-100', 'translate-y-0');
+                document.getElementById('hero-buttons').classList.add('opacity-100', 'translate-y-0');
+            }, 500);
+
+            // Filtro de proyectos
+            const proyectosGrid = document.getElementById('proyectos-grid');
+            const filterButtons = document.querySelectorAll('[data-filter]');
+
+            const proyectos = [
+                { tipo: 'residencial', imagen: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { tipo: 'comercial', imagen: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80' },
+                { tipo: 'residencial', imagen: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80' },
+                { tipo: 'comercial', imagen: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { tipo: 'residencial', imagen: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { tipo: 'comercial', imagen: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+            ];
+
+            function renderProyectos(filter = 'all') {
+                proyectosGrid.innerHTML = '';
+                proyectos.forEach(proyecto => {
+                    if (filter === 'all' || proyecto.tipo === filter) {
+                        const div = document.createElement('div');
+                        div.className = 'relative overflow-hidden rounded-lg shadow-md aspect-video fade-in';
+                        div.innerHTML = `
+                            <img src="${proyecto.imagen}" alt="Proyecto ${proyecto.tipo}" class="w-full h-full object-cover transition duration-300 transform hover:scale-110">
+                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                                <span class="text-white text-lg font-semibold capitalize">${proyecto.tipo}</span>
+                            </div>
+                        `;
+                        proyectosGrid.appendChild(div);
+                    }
+                });
+            }
+
+            renderProyectos();
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('bg-primary', 'text-white'));
+                    button.classList.add('bg-primary', 'text-white');
+                    renderProyectos(button.getAttribute('data-filter'));
+                });
+            });
+
+            // FAQ dinámico
+            const faqContainer = document.getElementById('faq-container');
+            const faqs = [
+                { question: "¿Qué es el steel framing?", answer: "El steel framing es un sistema constructivo que utiliza perfiles de acero galvanizado para formar la estructura de una edificación." },
+                { question: "¿Cuáles son las ventajas del steel framing?", answer: "Las principales ventajas incluyen rapidez de construcción, durabilidad, resistencia a plagas y hongos, y excelente aislación térmica y acústica." },
+                { question: "¿Es seguro construir con steel framing?", answer: "Sí, el steel framing es muy seguro. Los perfiles de acero son resistentes al fuego y a los sismos, proporcionando una estructura sólida y duradera." },
+                { question: "¿Cuánto tiempo toma construir con steel framing?", answer: "El tiempo de construcción puede reducirse hasta en un 50% comparado con los métodos tradicionales, dependiendo del tamaño y complejidad del proyecto." }
+            ];
+
+            faqs.forEach(faq => {
+                const div = document.createElement('div');
+                div.className = 'bg-secondary p-4 rounded-lg shadow-md fade-in';
+                div.innerHTML = `
+                    <button class="flex justify-between items-center w-full text-left">
+                        <span class="text-lg font-semibold text-primary">${faq.question}</span>
+                        <svg class="w-6 h-6 text-primary transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <p class="mt-4 text-accent hidden">${faq.answer}</p>
+                `;
+                faqContainer.appendChild(div);
+
+                const button = div.querySelector('button');
+                const answer = div.querySelector('p');
+                const icon = div.querySelector('svg');
+
+                button.addEventListener('click', () => {
+                    answer.classList.toggle('hidden');
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+
+            // Menu toggle para dispositivos móviles
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Header fijo con efecto de scroll
+            const header = document.getElementById('main-header');
+            const topBanner = document.getElementById('top-banner');
+            let lastScrollTop = 0;
+
+            window.addEventListener('scroll', () => {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop) {
+                    header.style.top = `-${topBanner.offsetHeight}px`;
+                } else {
+                    header.style.top = '0';
+                }
+                lastScrollTop = scrollTop;
+            });
+
+            // Efecto de rotación en scroll para los iconos de servicios
+            const serviceIcons = document.querySelectorAll('#servicios svg');
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.scrollY;
+                serviceIcons.forEach(icon => {
+                    const rotation = scrollPosition / 10; // Ajusta este valor para cambiar la velocidad de rotación
+                    icon.style.transform = `rotate(${rotation}deg)`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
