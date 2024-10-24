@@ -153,8 +153,8 @@
         <section id="inicio" class="h-screen bg-cover bg-center flex items-center" style="background-image: url('https://images.unsplash.com/photo-1541123437800-1bb1317badc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');">
             <div class="container mx-auto px-6 text-center">
                 <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 opacity-0 transform translate-y-12 transition duration-1000 ease-out" id="hero-title">Construimos tu sueño con durabilidad y sostenibilidad</h1>
-                <div class="space-x-4 opacity-0 transform translate-y-12 transition duration-1000 ease-out delay-300" id="hero-buttons">
-                    <a href="#contacto" class="bg-primary text-white px-6 py-3 rounded-full  hover:bg-red-600 transition">Contáctanos</a>
+                <div class="space-x-4 opacity-0 transform translate-y-12 transition duration-1000 ease-out delay-300"   id="hero-buttons">
+                    <a href="#contacto" class="bg-primary text-white px-6 py-3 rounded-full hover:bg-red-600 transition">Contáctanos</a>
                     <a href="#proyectos" class="bg-white text-secondary px-6 py-3 rounded-full hover:bg-gray-200 transition">Ver Proyectos</a>
                 </div>
             </div>
@@ -397,6 +397,10 @@
                         proyectosGrid.appendChild(div);
                     }
                 });
+                // Volver a aplicar la animación de fade-in
+                document.querySelectorAll('#proyectos-grid .fade-in').forEach(el => {
+                    observer.observe(el);
+                });
             }
 
             renderProyectos();
@@ -410,37 +414,43 @@
             });
 
             // FAQ dinámico
-            const faqContainer = document.getElementById('faq-container');
-            const faqs = [
-                { question: "¿Qué es el steel framing?", answer: "El steel framing es un sistema constructivo que utiliza perfiles de acero galvanizado para formar la estructura de una edificación." },
-                { question: "¿Cuáles son las ventajas del steel framing?", answer: "Las principales ventajas incluyen rapidez de construcción, durabilidad, resistencia a plagas y hongos, y excelente aislación térmica y acústica." },
-                { question: "¿Es seguro construir con steel framing?", answer: "Sí, el steel framing es muy seguro. Los perfiles de acero son resistentes al fuego y a los sismos, proporcionando una estructura sólida y duradera." },
-                { question: "¿Cuánto tiempo toma construir con steel framing?", answer: "El tiempo de construcción puede reducirse hasta en un 50% comparado con los métodos tradicionales, dependiendo del tamaño y complejidad del proyecto." }
-            ];
+        const faqContainer = document.getElementById('faq-container');
+        const faqs = [
+            { question: "¿Qué es el steel framing?", answer: "El steel framing es un sistema constructivo que utiliza perfiles de acero galvanizado para formar la estructura de una edificación." },
+            { question: "¿Cuáles son las ventajas del steel framing?", answer: "Las principales ventajas incluyen rapidez de construcción, durabilidad, resistencia a plagas y hongos, y excelente aislación térmica y acústica." },
+            { question: "¿Es seguro construir con steel framing?", answer: "Sí, el steel framing es muy seguro. Los perfiles de acero son resistentes al fuego y a los sismos, proporcionando una estructura sólida y duradera." },
+            { question: "¿Cuánto tiempo toma construir con steel framing?", answer: "El tiempo de construcción puede reducirse hasta en un 50% comparado con los métodos tradicionales, dependiendo del tamaño y complejidad del proyecto." }
+        ];
 
-            faqs.forEach(faq => {
-                const div = document.createElement('div');
-                div.className = 'bg-secondary p-4 rounded-lg shadow-md fade-in';
-                div.innerHTML = `
-                    <button class="flex justify-between items-center w-full text-left">
-                        <span class="text-lg font-semibold text-primary">${faq.question}</span>
-                        <svg class="w-6 h-6 text-primary transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <p class="mt-4 text-accent hidden">${faq.answer}</p>
-                `;
-                faqContainer.appendChild(div);
+        faqs.forEach(faq => {
+            const div = document.createElement('div');
+            div.className = 'bg-secondary p-4 rounded-lg shadow-md fade-in';
+            div.innerHTML = `
+                <button class="flex justify-between items-center w-full text-left">
+                    <span class="text-lg font-semibold text-primary">${faq.question}</span>
+                    <svg class="w-6 h-6 text-primary transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <p class="mt-4 text-accent hidden">${faq.answer}</p>
+            `;
+            faqContainer.appendChild(div);
 
-                const button = div.querySelector('button');
-                const answer = div.querySelector('p');
-                const icon = div.querySelector('svg');
+            const button = div.querySelector('button');
+            const answer = div.querySelector('p');
+            const icon = div.querySelector('svg');
 
-                button.addEventListener('click', () => {
-                    answer.classList.toggle('hidden');
-                    icon.classList.toggle('rotate-180');
-                });
+            button.addEventListener('click', () => {
+                answer.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
             });
+        });
+
+        // Volver a aplicar la animación de fade-in para las FAQs
+        document.querySelectorAll('#faq-container .fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
 
             // Menu toggle para dispositivos móviles
             const menuToggle = document.getElementById('menu-toggle');
